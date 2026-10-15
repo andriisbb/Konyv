@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Konyv
 {
-    public class Konyv
+    public class Konyvek
     {
         private int ar;
         private int raktarKeszlet;
@@ -14,48 +14,29 @@ namespace Konyv
         public string Szerzo { get; set; }
         public int Ar
         {
-            get { return Ar; }
-            set
-            {
-                if (value < 0)
-                {
-                    Ar = 0;
-                }
-                else
-                {
-                    Ar = value;
-                }
-            }
+            get => ar;
+            set => ar = value < 0 ? 0 : value;
         }
         public int RaktarKeszlet
         {
-            get { return raktarKeszlet; }
-            set
-            {
-                if (value < 0)
-                {
-                    raktarKeszlet = 0;
-                }
-                else
-                {
-                    raktarKeszlet = value;
-                }
-            }
+            get => raktarKeszlet;
+            set => raktarKeszlet = value < 0 ? 0 : value;
         }
         public static int OsszesRegisztraltKonyv
         {
             get => osszesRegisztraltKonyv;
         }
-        public Konyv (string azonosito, string cim, string szerzo, int ar):this(azonosito, cim, szerzo, ar, 1)
+        public Konyvek (string azonosito, string cim, string szerzo, int ar):this(azonosito, cim, szerzo, ar, 1)
         {
 
         }
-        public Konyv(string azonosito, string cim, string szerzo, int ar, int raktarKeszlet)
+        public Konyvek(string azonosito, string cim, string szerzo, int ar, int raktarKeszlet)
         {
             Azonosito = azonosito;
             Cim = cim;
             Szerzo = szerzo;
             Ar = ar;
+            RaktarKeszlet = raktarKeszlet;
             osszesRegisztraltKonyv++;
 
         }
